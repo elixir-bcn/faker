@@ -9,4 +9,8 @@ defmodule FakerTest do
     end
   end
 
+  test "read_file" do
+    assert is_map(Faker.read_file)
+  end
+
 end

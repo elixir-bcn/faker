@@ -16,6 +16,6 @@ defmodule AddressTest do
     for _ <- 0..10 do
       ary = [ Faker.Address.city | ary ]
     end
-    assert Enum.count(List.uniq(ary)) > 1
+    assert Enum.count(Enum.uniq(ary)) > 1
   end
 end
