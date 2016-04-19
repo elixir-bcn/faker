@@ -5,13 +5,12 @@ defmodule Faker do
   end
 
   defmacro sampler(name) do
-    data = read_file["es"]["faker"]["address"][to_string(name)]
-    count = Enum.count(data)
-
     quote do
       def unquote(name)() do
-        unquote(data)
-        |> Enum.at(:crypto.rand_uniform(0, unquote(count)))
+        data = __MODULE__.data_from_file(unquote(name))
+        count = Enum.count(data)
+        data
+        |> Enum.at(:crypto.rand_uniform(0, count))
       end
     end
  end

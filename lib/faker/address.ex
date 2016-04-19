@@ -2,7 +2,7 @@ defmodule Faker.Address do
   import Faker
   def data_from_file(name) do
     case name do
-      :city -> read_file["es"]["faker"]["address"]
+      :city_prefix -> read_file["es"]["faker"]["address"][to_string(name)]
     end
   end
 
